@@ -5,6 +5,7 @@ export default class Hero extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            post: 0,
             title: 'Loading',
             backgroundStyle: {
                 backgroundImage: 'none'
@@ -12,24 +13,26 @@ export default class Hero extends Component {
         }
     }
 
-    componentWillReceiveProps(props) {
-        if (props.post) {
-            this.setState({
-                title: props.post.fields.title
-            });
-            
-            contentful.getImage(props.post.fields.featuredImage.sys.id)
-                .then((res) => {
-                    this.setState({
-                        backgroundStyle: {
-                            backgroundImage: 'url(https:' + res.data.fields.file.url + ')'
-                        }
-                    });
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }
+    getImage() {
+        contentful.getImage(this.state.post.fields.featuredImage.sys.id)
+            .then((res) => {
+                this.setState({
+                    backgroundStyle: {
+                        backgroundImage: 'url(https:' + res.data.fields.file.url + ')'
+                    }
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    componentWillMount() {
+        contentful.getPosts(1, 0)
+            .then((res) => {
+                this.setState({post: res.data.items[0], title: res.data.items[0].fields.title});
+                this.getImage();
+            })
     }
 
     render() {

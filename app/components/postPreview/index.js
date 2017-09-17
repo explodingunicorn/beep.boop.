@@ -8,7 +8,8 @@ export default class PostPreview extends Component {
     render() {
         return (
             <div className="post-preview">
-            
+                <h3>{this.props.post.fields.title}</h3>
+                <p>{this.props.post.fields.reviewDescription}</p>
             </div>
         );
     }

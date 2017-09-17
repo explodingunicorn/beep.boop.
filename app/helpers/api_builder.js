@@ -9,6 +9,21 @@ module.exports.getImage = (id) => {
    return  axios.get(base + 'assets/' + id + token);
 }
 
-module.exports.getPosts = (amt, start) => {
-    return axios.get(base + 'entries' + token + dateOrder + posts + '&skip=' + start + '&limit=' + amt);
+module.exports.getPosts = (amt, start, types) => {
+    let typeStr = '';
+
+    if (types) {
+        for (var i = 0; i < types.length; i++) {
+            typeStr += types[i];
+
+            if(i !== types.length - 1) {
+                typeStr += ',';
+            }
+        }
+    }
+    else {
+        typeStr = 'Game,Movie,Book,Music,Opinion';
+    }
+
+    return axios.get(base + 'entries' + token + dateOrder + posts + '&skip=' + start + '&limit=' + amt + '&fields.type[in]=' + typeStr);
 }
