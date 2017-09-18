@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:400,700');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:400,700|Source+Serif+Pro:400');
 
 h1, h2, h3, h4 {
     color: @black;
-    margin: 1.414em 0 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0;
     line-height: 1.2;
 }
 
@@ -33,6 +34,21 @@ h4 {
 
 p {
     font-family: 'Source Sans Pro';
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+
+    h3 {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    h4 {
+        color: @white;
+        margin-bottom: 0;
+    }
 }

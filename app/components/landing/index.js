@@ -16,8 +16,8 @@ export default class LandingPage extends Component {
                 <div className="main-container">
                     <div className="row">
                         <div className="col-md-8">
-                            <PostList postAmount={3} types={['Game', 'Music', 'Book', 'Movie']}/>
-                            <PostList postAmount={3} types={['Opinion']}/>
+                            <PostList postAmount={3} types={['Game', 'Music', 'Book', 'Movie']} text="Reviews"/>
+                            <PostList postAmount={3} types={['Opinion']} text="Opinions"/>
                         </div>
                         <div className="col-md-4">
                         

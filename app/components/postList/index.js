@@ -7,12 +7,24 @@ export default class PostList extends Component {
         super(props);
 
         this.state = {
-            posts: []
+            posts: [],
+            color: 0
         }
     }
 
+    setColor(type) {
+        let color = {
+            Game: 'green',
+            Movie: 'blue',
+            Book: 'purple',
+            Opinion: 'red'
+        }
+
+        this.setState({color: color[type]});
+    }
+
     componentWillMount() {
-        console.log(this.props.types);
+        this.setColor(this.props.types[0]);
         contentful.getPosts(this.props.postCount, 0, this.props.types)
             .then((res) => {
                 console.log(res.data);
@@ -31,8 +43,8 @@ export default class PostList extends Component {
 
     render() {
         return (
-            <div>
-                <p>Post List</p>
+            <div className="post-list-container">
+                <h2 className={"text-" + this.state.color}>Recent {this.props.text}</h2>
                 {this.renderPostPreviews()}
             </div>
         )

@@ -1,0 +1,17 @@
+.preview-button {
+    border: none;
+    bottom: 0;
+    display: inline-block;
+    padding: 30px;
+    position: absolute;
+    right: 0;
+    transition: all .5s;
+
+    &.green {
+        border-color: @purple;
+    }
+
+    &:hover {
+        border-left: 20px @purple solid;
+    }
+}
