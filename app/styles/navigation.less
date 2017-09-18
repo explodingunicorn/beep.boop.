@@ -1,0 +1,44 @@
+.navigation {
+    background-color: @green;
+    border-bottom: 1px @darkGreen solid;
+    left: 0;
+    padding: 10px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 999;
+
+    .navigation-list {
+        bottom: 0;
+        right: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+
+        .navigation-button {
+            align-items: center;
+            background-color: @green;
+            border-right: 1px @darkGreen solid;
+            display: flex;
+            flex-direction: column;
+            height: 72px;
+            justify-content: center;
+            left: 100%;
+            position: absolute;
+            top: 0;
+            width: 72px;
+            z-index: 1000;
+
+            img {
+                height: 30px;
+                width: 30px;
+            }
+
+            &:hover {
+                background-color: @darkGreen;
+                cursor: pointer;
+            }
+        }
+    }
+}
