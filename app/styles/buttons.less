@@ -6,19 +6,22 @@
     transition: all .5s;
 
     h4 {
-        background-color: @white;
         display: inline-block;
         padding: 30px;
     }
 
     .deco {
-        background-color: @blue;
+        display: flex;
+        flex-direction: row;
         flex: 0;
         overflow: hidden;
         transition: all .3s;
 
         h4 {
-            background-color: @blue;
+            flex: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all .3s;
         }
     }
 
@@ -29,6 +32,72 @@
     &:hover {
         .deco {
             flex: 1;
+
+            h4 {
+                flex: 1;
+            }
+        }
+    }
+}
+
+.navigation-list-button {
+    border-bottom: 1px @darkPurple solid;
+    display: block;
+    width: 100%;
+    padding: 30px 20px;
+    text-align: left;
+
+    h4 {
+        color: @white;
+        text-shadow: 2px 2px @darkPurple;
+        transition: all .3s;
+    }
+
+    &:hover {
+        background-color: @darkPurple !important;
+
+        h4 {
+            margin-left: 20px;
+        }
+    }
+}
+
+.inverted-button {
+    border: 2px @gray solid;
+    border-top: 1px @gray solid;
+    box-shadow: 0px 5px 20px -8px @black;
+    display: block;
+    margin-bottom: 50px;
+    padding: 40px 0;
+    text-align: center;
+    transition: all .3s;
+    width: 100%;
+
+    h4 {
+        transition: all .3s;
+    }
+
+    &.game {
+        &:hover {
+            background-color: @green;
+            box-shadow: 0px 0px 0px -8px @black;
+
+            h4 {
+                color: white !important;
+                text-shadow: none;
+            }
+        }
+    }
+
+    &.opinion {
+        &:hover {
+            background-color: @red;
+            box-shadow: 0px 0px 0px -8px @black;
+
+            h4 {
+                color: white !important;
+                text-shadow: none;
+            }
         }
     }
 }

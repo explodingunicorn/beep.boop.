@@ -1,4 +1,4 @@
-import {base, token, author, posts, dateOrder} from './api_keys';
+import {base, token, author, posts, queue, dateOrder} from './api_keys';
 import axios from 'axios';
 
 module.exports.getPost = (slug) => {
@@ -25,5 +25,11 @@ module.exports.getPosts = (amt, start, types) => {
         typeStr = 'Game,Movie,Book,Music,Opinion';
     }
 
+    console.log(typeStr);
+
     return axios.get(base + 'entries' + token + dateOrder + posts + '&skip=' + start + '&limit=' + amt + '&fields.type[in]=' + typeStr);
+}
+
+module.exports.getQueue = () => {
+    return axios.get(base + 'entries' + token + queue);
 }

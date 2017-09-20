@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PostPreview from '../postPreview';
+import { getColor } from '../../helpers/helpers';
+import { Link } from 'react-router-dom';
 import contentful from '../../helpers/api_builder';
 
 export default class PostList extends Component {
@@ -13,26 +15,27 @@ export default class PostList extends Component {
     }
 
     setColor(type) {
-        let color = {
-            Game: 'green',
-            Movie: 'blue',
-            Book: 'purple',
-            Opinion: 'red'
-        }
-
-        this.setState({color: color[type]});
+        this.setState({color: getColor(type)});
     }
 
-    componentWillMount() {
-        this.setColor(this.props.types[0]);
-        contentful.getPosts(this.props.postCount, 0, this.props.types)
+    getPosts(props) {
+        contentful.getPosts(props.postAmount, props.postStart, props.types)
             .then((res) => {
-                console.log(res.data);
                 this.setState({posts: res.data.items})
             })
             .catch((err) => {
                 console.log(err);
             });
+    }
+
+    componentWillMount() {
+        this.setColor(this.props.types[0]);
+        this.getPosts(this.props);
+    }
+
+    componentWillReceiveProps(props) {
+        this.setColor(props.types[0]);
+        this.getPosts(props);
     }
 
     renderPostPreviews() {
@@ -42,10 +45,16 @@ export default class PostList extends Component {
     }
 
     render() {
+
         return (
             <div className="post-list-container">
-                <h2 className={"text-" + this.state.color}>Recent {this.props.text}</h2>
-                {this.renderPostPreviews()}
+                <h2 className={"text-" + this.state.color}>{this.props.text}</h2>
+                <div className={"seperator " + this.state.color}>
+                    <div className="seperator-deco"></div>
+                </div>
+                <div className="list">
+                    {this.renderPostPreviews()}
+                </div>
             </div>
         )
     }

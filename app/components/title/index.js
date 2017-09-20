@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PreviewButton from '../previewButton';
 import { Link } from 'react-router-dom';
 
 export default class Title extends Component {
@@ -7,24 +8,14 @@ export default class Title extends Component {
 
         this.state = {
             title: 'Loading',
-            backgroundColor: 'green'
+            backgroundColor: 'green',
+            slug: ''
         }
-    }
-
-    determineColor(type) {
-        let colors = {
-            Game: 'green',
-            Movie: 'blue',
-            Book: 'purple',
-            Opinion: 'red'
-        }
-
-        this.setState({backgroundColor: colors[type]});
     }
 
     componentWillReceiveProps(props) {
-        if (props.type) {
-            this.determineColor(props.type);
+        if (props.color) {
+            this.setState({backgroundColor: props.color})
         }
 
         if (props.title) {
@@ -32,26 +23,34 @@ export default class Title extends Component {
         }
     }
 
-    renderReadMore() {
-
+    isHero() {
+        if (this.props.readMore) {
+            return 'text'
+        }
+        else {
+            return this.state.backgroundColor;
+        }
     }
 
     render() {
         let readMore = <div></div>;
         if (this.props.readMore) {
-            readMore = <Link to={"/post/" + this.props.slug} className={"preview-button "}>
-                            <h4 className={"text-" + this.state.backgroundColor + " text-shadow-"}>Read more</h4>
-                            <div className="deco">
-                                <h4>pls?</h4>
-                            </div>
-                        </Link>
-        }
+            return (
+                <div className={"title-container"}>
+                    <Link to={"/post/" + this.props.slug}>
+                        <h1 className={"text-" + this.state.backgroundColor}>{this.state.title}</h1>
+                    </Link>
+                    <PreviewButton color={this.state.backgroundColor} slug={this.props.readMore}/>
+                </div>
+            )
 
-        return (
-            <div className={"title-container " + this.state.backgroundColor}>
-                <h1 className={"text-shadow-" + this.state.backgroundColor}>{this.state.title}</h1>
-                {readMore}
-            </div>
-        )
+        }
+        else {
+            return (
+                <div className={"title-container " + this.state.backgroundColor}>
+                    <h1>{this.state.title}</h1>
+                </div>
+            )
+        }
     }
 }

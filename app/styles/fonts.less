@@ -35,9 +35,17 @@ h4 {
 h5 {
     color: @white;
     font-family: 'Bungee';
-    font-size: 22px;
+    font-size: 44px;
     margin: 0;
-    line-height: 26px;
+    line-height: 52px;
+}
+
+h6 {
+    font-family: 'Source Sans Pro';
+    font-size: 1.332em;
+    font-weight: 400;
+    line-height: 2em;
+    margin: 5px 0;
 }
 
 p {
@@ -48,6 +56,11 @@ p {
 
 a {
     text-decoration: none;
+
+    &.inline-link {
+        display: inline-block;
+        padding: 0 20px;
+    }
 
     h3 {
         &:hover {

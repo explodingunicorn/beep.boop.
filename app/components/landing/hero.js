@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Title from '../title';
+import { getColor } from '../../helpers/helpers';
 import contentful from '../../helpers/api_builder';
 
 export default class Hero extends Component {
@@ -8,7 +9,7 @@ export default class Hero extends Component {
         this.state = {
             post: 0,
             title: 0,
-            type: 0,
+            color: 0,
             slug: 0,
             backgroundStyle: {
                 backgroundImage: 'none'
@@ -36,7 +37,7 @@ export default class Hero extends Component {
                 this.setState({
                     post: res.data.items[0], 
                     title: res.data.items[0].fields.title,
-                    type: res.data.items[0].fields.type,
+                    color: getColor(res.data.items[0].fields.type),
                     slug: res.data.items[0].fields.slug
                 });
                 this.getImage();
@@ -47,7 +48,7 @@ export default class Hero extends Component {
         return (
             <div className="hero fluid-container" style={this.state.backgroundStyle}>
                 <div className="main-container">
-                    <Title title={this.state.title} type={this.state.type} readMore={this.state.slug}/>
+                    <Title title={this.state.title} color={this.state.color} readMore={this.state.slug}/>
                 </div>
             </div>
         )

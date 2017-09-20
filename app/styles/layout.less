@@ -1,0 +1,48 @@
+.seperator {
+    border-bottom: 1.5px @black solid;
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    width: 100%;
+
+    .seperator-deco {
+        height: 5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+    }
+
+
+    &.green {
+        border-color: @green;
+
+        .seperator-deco {
+            background-color: @green;
+        }
+    }
+
+    &.blue {
+        border-color: @blue;
+
+        .seperator-deco {
+            background-color: @blue;
+        }
+    }
+
+    &.purple {
+        border-color: @purple;
+
+        .seperator-deco {
+            background-color: @purple;
+        }
+    }
+
+    &.red {
+        border-color: @red;
+
+        .seperator-deco {
+            background-color: @red;
+        }
+    }
+}

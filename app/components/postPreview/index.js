@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PreviewButton from '../previewButton';
 import PreviewImage from './previewImage';
 import { Link } from 'react-router-dom';
 
@@ -35,12 +36,7 @@ export default class PostPreview extends Component {
                         <h3 className={"text-" + this.state.color}>{this.props.post.fields.title}</h3>
                     </Link>
                     <p>{this.props.post.fields.reviewDescription}</p>
-                    <Link to={"/post/" + this.props.post.fields.slug} className={"preview-button "}>
-                        <h4 className={this.state.color + " text-shadow-" + this.state.color}>Read more</h4>
-                        <div className="deco">
-                            <h4>pls?</h4>
-                        </div>
-                    </Link>
+                    <PreviewButton color={this.state.color} slug={this.props.post.fields.slug}/>
                 </div>
             </div>
         );

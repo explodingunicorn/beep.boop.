@@ -1,5 +1,4 @@
 .navigation {
-    background-color: @green;
     border-bottom: 1px @darkGreen solid;
     left: 0;
     padding: 10px;
@@ -9,17 +8,39 @@
     top: 0;
     z-index: 999;
 
+    .home {
+        h5 {
+            transition: all .3s;
+        }
+
+        &:hover {
+            h5 {
+                text-shadow: 7px 7px @darkGreen;
+            }
+        }
+    }
+
     .navigation-list {
+        background-color: @purple;
+        border-right: 1px @darkPurple solid;
         bottom: 0;
-        right: 100%;
+        box-shadow: 0px 0px 20px -10px @black;
+        left: -20%;
         position: fixed;
         top: 0;
+        transition: all .4s;
+        width: 20%;
         z-index: 1000;
+
+        &.open {
+            left: 0%;
+        }
 
         .navigation-button {
             align-items: center;
             background-color: @green;
-            border-right: 1px @darkGreen solid;
+            border-left: 1px @darkPurple solid;
+            border-right: 1px @darkPurple solid;
             display: flex;
             flex-direction: column;
             height: 72px;
@@ -30,9 +51,22 @@
             width: 72px;
             z-index: 1000;
 
-            img {
+            &.open {
+                background-color: @red;
+                border-color: @darkRed;
+
+                &:hover {
+                    background-color: @darkRed;
+                }
+            }
+
+            svg {
                 height: 30px;
                 width: 30px;
+
+                rect {
+                    fill: @white;
+                }
             }
 
             &:hover {
@@ -41,4 +75,13 @@
             }
         }
     }
+}
+
+.footer {
+    align-items: center;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    position: relative;
+    width: 100%;
 }

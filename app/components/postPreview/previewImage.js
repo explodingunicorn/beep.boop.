@@ -22,10 +22,8 @@ export default class PreviewImage extends Component {
 
     componentWillMount() {
         if (this.props.image) {
-            console.log('hi');
             contentful.getImage(this.props.image.sys.id)
                 .then((res) => {
-                    console.log('preview image');
                     this.setImage(res.data.fields.file.url);
                 })
                 .catch((err) => {

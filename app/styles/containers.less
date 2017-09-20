@@ -9,7 +9,6 @@
         background-repeat: no-repeat;
         height: 70%;
         margin-bottom: 40px;
-        margin-top: 40px;
     }
 
     .main-container {
@@ -29,6 +28,10 @@
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+
+    &.only {
+        margin-top: 100px;
+    }
 }
 
 .post-container {
@@ -41,9 +44,14 @@
     p {
         font-family: 'Source Serif Pro' !important;
     }
+
+    h2 {
+        margin-top: 20px;
+    }
 }
 
 .title-container {
+    background-color: white;
     display: flex;
     flex-direction: row;
     padding: 20px;
@@ -51,7 +59,7 @@
     max-width: 80%;
 
     h1 {
-        color: @white !important;
+        color: white;
         display: inline-block;
     }
 
@@ -63,7 +71,16 @@
 }
 
 .post-list-container {
-    margin-bottom: 60px;
+
+    .seperator {
+        margin-bottom: 0;
+    }
+
+    .list {
+        border: 1px @gray solid;
+        padding: 20px;
+        padding-top: 40px;
+    }
 }
 
 .post-preview-container {
@@ -71,12 +88,14 @@
     border-bottom: 3px @gray solid;
     border-radius: 5px 0 0 2px;
     border-right: 3px @gray solid;
+    box-shadow: 0px 0px 5px -5px @black;
     display: flex;
     flex-direction: row;
     padding: 25px;
-    padding-bottom: 70px;
+    padding-bottom: 90px;
     position: relative;
     margin-bottom: 25px;
+    transition: all .3s;
 
     .pic-container {
         height: 150px;
@@ -112,5 +131,31 @@
             position: absolute;
             right: 0;
         }
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 20px -8px @black;
+    }
+}
+
+.sidebar {
+    .title {
+        display: inline-block;
+        padding: 10px;
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    .seperator {
+        margin: 0;
+    }
+
+    .main {
+        border: 1.5px @gray solid;
+        border-right: 3px @gray solid;
+        border-bottom: 3px @gray solid;
+        padding: 15px;
     }
 }

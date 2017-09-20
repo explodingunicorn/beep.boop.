@@ -1,11 +1,19 @@
+@lightGreen: #DCECE9;
 @green: #439A86;
 @darkGreen: #2B6356;
+
+@lightBlue: #DCE0F0;
 @blue: #4357AD;
 @darkBlue: #1F284F;
+
+@lightPurple: #E1DFE6;
 @purple: #5B507A;
 @darkPurple: #322C43;
+
+@lightRed: #EBDADE;
 @red: #92374D;
 @darkRed: #431923;
+
 @black: #464544;
 @gray: #E8E6E3;
 @white: #FFFCF9;
@@ -13,21 +21,37 @@
 .green {
     background-color: @green !important;
 
-    h1, h2, h3, h4, h5, h6, p {
-        text-shadow: 2px 2px @darkGreen;
+    > h1, > h2, > h3, > h4, > h5, > h6, > p {
+        color: @white;
+        text-shadow: 2px 2px 0 @darkGreen;
     }
 }
 
 .blue {
     background-color: @blue !important;
+
+    > h1, > h2, > h3, > h4, > h5, > h6, > p {
+        color: @white;
+        text-shadow: 2px 2px 0 @darkBlue;
+    }
 }
 
 .purple {
     background-color: @purple !important;
+
+    > h1, > h2, > h3, > h4, > h5, > h6, > p {
+        color: @white;
+        text-shadow: 2px 2px 0 @darkPurple;
+    }
 }
 
 .red {
     background-color: @red !important;
+
+    > h1, > h2, > h3, > h4, > h5, > h6, > p {
+        color: @white;
+        text-shadow: 2px 2px 0 @darkRed;
+    }
 }
 
 .text-shadow-green {
@@ -47,17 +71,21 @@
 }
 
 .text-green {
-    color: @green;
+    color: @green !important;
+    text-shadow: 2px 2px @lightGreen;
 }
 
 .text-blue {
-    color: @blue;
+    color: @blue !important;
+    text-shadow: 2px 2px @lightBlue;
 }
 
 .text-purple {
-    color: @purple;
+    color: @purple !important;
+    text-shadow: 2px 2px @lightPurple;
 }
 
 .text-red {
-    color: @red;
+    color: @red !important;
+    text-shadow: 2px 2px @lightRed;
 }
