@@ -11,6 +11,10 @@
     .home {
         h5 {
             transition: all .3s;
+
+             @media only screen and (max-width: 900px) {
+                font-size: 32px;
+             }
         }
 
         &:hover {
@@ -23,8 +27,8 @@
     .navigation-list {
         background-color: @purple;
         border-right: 1px @darkPurple solid;
-        bottom: 0;
         box-shadow: 0px 0px 20px -10px @black;
+        height: 100%;
         left: -20%;
         position: fixed;
         top: 0;
@@ -32,8 +36,24 @@
         width: 20%;
         z-index: 1000;
 
+        @media only screen and (max-width: 1400px) {
+            left: -40%;
+            width: 40%;
+        }
+        
+        @media only screen and (max-width: 700px) {
+            left: -70%;
+            width: 70%;
+        }
+
         &.open {
             left: 0%;
+        }
+
+        .inner {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .navigation-button {

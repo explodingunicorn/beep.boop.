@@ -50,7 +50,7 @@ export default class Navigation extends Component {
                     <div className={"navigation-button " + this.state.open} onClick={() => this.toggleNavigation()}>
                         {this.getButton()}
                     </div>
-                    <div onClick={() => this.toggleNavigation()}>
+                    <div className="inner" onClick={() => this.toggleNavigation()}>
                         <Link to={"/"} className="navigation-list-button">
                             <h4>Home</h4>
                         </Link>

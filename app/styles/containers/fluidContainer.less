@@ -1,0 +1,36 @@
+.fluid-container {
+    width: 100%;
+
+    &.hero {
+        background-attachment: fixed;
+        background-color: @black;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 70%;
+        margin-bottom: 40px;
+
+        @media only screen and (max-width: 1400px) {
+            background-attachment: scroll;
+        }
+    }
+
+    .main-container {
+        height: 100%;
+        position: relative;
+    }
+
+    .title-container {
+        bottom: 100px;
+        max-width: 60%;
+        position: absolute;
+        right: 0;
+
+        @media only screen and (max-width: 1400px) {
+            max-width: 100%;
+        }
+    }
+}
